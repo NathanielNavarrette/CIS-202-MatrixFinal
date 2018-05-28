@@ -64,30 +64,36 @@ void matrixWindow::addMatrixDialog()
         }
     }
 
+    qDebug() << "Size of c_tmp: " << c_tmp.size();
+
     std::vector<int> row_tmp;
     std::vector<int> empty_vector;
     for(int i=0;i<c_tmp.size();i++)
     {
 
-        if(i % rows != 0)
+        if(i == 0 || (i % rows) != 0 )
         {
             row_tmp.push_back(c_tmp.at(i));
         }else{
+            row_tmp.push_back(c_tmp.at(i));
             m_data.push_back(row_tmp);
             row_tmp = empty_vector;
         }
 
         qDebug() << c_tmp.at(i);
     }
+
     qDebug() << "Output from the vector:";
     qDebug() << "m_data size: " << m_data.size();
-    for(int i = 0; i < rows; i++)
+
+    for(int i = 0; i < m_data.size(); i++)
     {
-        for(int j = 0; j < collums; j++)
-        {
-           //qDebug() << m_data.at(i).at(j);
-        }
         qDebug() << "Size at " << i << " : " << m_data.at(i).size();
+        for(int j = 0; j < m_data.at(i).size(); j++)
+        {
+           qDebug() << m_data.at(i).at(j);
+        }
+
     }
     /*
     if(fields.constFirst()->text().toInt() == 0 || fields.constLast()->text().toInt() == 0 )
