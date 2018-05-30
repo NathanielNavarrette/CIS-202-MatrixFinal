@@ -68,6 +68,30 @@ void matrixWindow::addMatrixDialog()
 
     std::vector<int> row_tmp;
     std::vector<int> empty_vector;
+
+    int thisSize = (rows*collums);
+
+    for(int i=0;i<thisSize;i)
+    {
+        if(i != thisSize -1)
+        {
+            int secondLoopMax = i+collums;
+            for(int j=i; j < secondLoopMax; j++)
+            {
+                row_tmp.push_back(c_tmp.at(j));
+
+                i=0;
+                i+=(j+1);
+            }
+            m_data.push_back(row_tmp);
+            row_tmp = empty_vector;
+
+        }else{
+            i++;
+        }
+    }
+
+    /*
     for(int i=0;i<c_tmp.size();i++)
     {
 
@@ -82,6 +106,7 @@ void matrixWindow::addMatrixDialog()
 
         qDebug() << c_tmp.at(i);
     }
+    */
 
     qDebug() << "Output from the vector:";
     qDebug() << "m_data size: " << m_data.size();
@@ -91,19 +116,10 @@ void matrixWindow::addMatrixDialog()
         qDebug() << "Size at " << i << " : " << m_data.at(i).size();
         for(int j = 0; j < m_data.at(i).size(); j++)
         {
-           qDebug() << m_data.at(i).at(j);
+            qDebug() << m_data.at(i).at(j);
         }
 
     }
-    /*
-    if(fields.constFirst()->text().toInt() == 0 || fields.constLast()->text().toInt() == 0 )
-    {
-        QMessageBox::critical(this, tr("Invalid Data"), tr("You entered invalid data"));
-    }else{
-        this->m_objectHeight = fields.constFirst()->text().toInt();
-        this->m_objectWidth = fields.constLast()->text().toInt();
-    }
-*/
 }
 
 
@@ -170,6 +186,4 @@ void matrixWindow::addingMatrix(bool clicked)
         emit matrixWindowSignal();
     }
 
-
-    //emit buttonBox.accepted();
 }
