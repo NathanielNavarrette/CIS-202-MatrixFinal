@@ -63,9 +63,24 @@ void matrixWindow::addMatrixDialog()
             //qDebug() << lineEdit->text().toInt();
         }
     }
+    //fix this so that if its not accepted dont do all of this
 
     qDebug() << "Size of c_tmp: " << c_tmp.size();
+    qDebug() << "";
 
+    Matrix m_matrix(c_tmp, rows, collums);
+    Matrix empty_test;
+
+    Matrix addition = m_matrix+m_matrix;
+    addition.m_debug_this(QString("Addition"));
+
+    Matrix subtract = m_matrix-m_matrix;
+    subtract.m_debug_this(QString("Subtraction"));
+
+    Matrix multi = m_matrix*m_matrix;
+    multi.m_debug_this(QString("Multiplication"));
+
+    /*
     std::vector<int> row_tmp;
     std::vector<int> empty_vector;
 
@@ -108,6 +123,7 @@ void matrixWindow::addMatrixDialog()
     }
     */
 
+    /*
     qDebug() << "Output from the vector:";
     qDebug() << "m_data size: " << m_data.size();
 
@@ -120,6 +136,7 @@ void matrixWindow::addMatrixDialog()
         }
 
     }
+    */
 }
 
 

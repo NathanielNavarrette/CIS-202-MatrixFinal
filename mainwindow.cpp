@@ -15,8 +15,16 @@ MainWindow::MainWindow(QWidget *parent) :
     optionsLayout->stretch(1);
     optionsMenu->setFixedHeight(50);
 
+    operationLayout->addWidget(addingMats);
+    operationLayout->stretch(1);
+    operationLayout->addWidget(subbingMats);
+    operationLayout->stretch(1);
+    operationLayout->addWidget(multiMats);
+    operationLayout->stretch(1);
+    operationMenu->setFixedHeight(50);
 
     m_layout->addWidget(optionsMenu);
+    m_layout->addWidget(operationMenu);
     m_layout->addWidget(matrixView);
 
     ui->centralWidget->setLayout(m_layout);

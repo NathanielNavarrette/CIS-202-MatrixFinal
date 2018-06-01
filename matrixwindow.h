@@ -12,7 +12,9 @@
 #include <QDebug>
 #include <vector>
 
-typedef std::vector<std::vector<int>> Matrix;
+#include "matrix.h"
+
+//typedef std::vector<std::vector<int>> Matrix;
 
 class matrixWindow : public QWidget
 {
@@ -21,7 +23,7 @@ public:
     explicit matrixWindow(QWidget *parent = nullptr);
 
 private:
-    Matrix m_data;
+    //Matrix m_data;
     void addMatrixDialog();
 
     int rows = 1;
