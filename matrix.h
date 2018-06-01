@@ -18,6 +18,7 @@ public:
     m_Matrix get_matrix() const;
     int get_rows() const;
     int get_cols() const;
+    int get_value_at(int this_row, int this_col);
 
 
 private:

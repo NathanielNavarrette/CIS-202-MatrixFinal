@@ -27,12 +27,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     matrixwindow.cpp \
-    matrix.cpp
+    matrix.cpp \
+    matrixview.cpp
 
 HEADERS += \
         mainwindow.h \
     matrixwindow.h \
-    matrix.h
+    matrix.h \
+    matrixview.h
 
 FORMS += \
         mainwindow.ui

@@ -13,6 +13,7 @@
 #include <vector>
 
 #include "matrix.h"
+#include "matrixview.h"
 
 //typedef std::vector<std::vector<int>> Matrix;
 

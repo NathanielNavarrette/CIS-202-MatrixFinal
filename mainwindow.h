@@ -6,6 +6,7 @@
 #include <QLayout>
 
 #include "matrixwindow.h"
+#include "matrixview.h"
 
 enum SizeConstraint { SetDefaultConstraint, SetFixedSize, SetMinimumSize, SetMaximumSize, SetMinAndMaxSize, SetNoConstraint };
 
@@ -37,6 +38,8 @@ private:
     QWidget *addingMats = new QPushButton("Add Two Matricies", operationMenu);
     QWidget *subbingMats = new QPushButton("Subtract Two Matricies", operationMenu);
     QWidget *multiMats = new QPushButton("Multiply Two Matricies", operationMenu);
+
+
 
 
     QWidget *matrixView = new matrixWindow(this);

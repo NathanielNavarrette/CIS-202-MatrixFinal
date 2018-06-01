@@ -55,6 +55,11 @@ int Matrix::get_cols() const
     return m_cols;
 }
 
+int Matrix::get_value_at(int this_row, int this_col)
+{
+    return m_data.at(this_row, this_col);
+}
+
 void Matrix::m_debug_this(QString s_name)
 {
     qDebug() << s_name;
