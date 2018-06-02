@@ -32,6 +32,7 @@ private:
 
 signals:
     void matrixWindowSignal();
+    void addedMatrixSignal(Matrix viewThis);
 
 public slots:
     void addingMatrix(bool clicked);

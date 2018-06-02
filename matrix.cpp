@@ -57,7 +57,7 @@ int Matrix::get_cols() const
 
 int Matrix::get_value_at(int this_row, int this_col)
 {
-    return m_data.at(this_row, this_col);
+    return m_data.at(this_row).at(this_col);
 }
 
 void Matrix::m_debug_this(QString s_name)

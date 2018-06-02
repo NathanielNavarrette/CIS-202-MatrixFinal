@@ -78,6 +78,7 @@ void matrixWindow::addMatrixDialog()
     subtract.m_debug_this(QString("Subtraction"));
 
     Matrix multi = m_matrix*m_matrix;
+    //emit addedMatrixSignal(multi);
     multi.m_debug_this(QString("Multiplication"));
 
     /*

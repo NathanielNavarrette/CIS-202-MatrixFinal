@@ -12,7 +12,7 @@ class MatrixView : public QWidget
     Q_OBJECT
 public:
     explicit MatrixView(QWidget *parent = nullptr);
-    MatrixView(QWidget *parent = nullptr, Matrix displayThis);
+    MatrixView(Matrix displayThis, QWidget *parent = nullptr);
 
 
 private:

@@ -35,11 +35,11 @@ private:
     QWidget *clearScreen = new QPushButton("Clear Screen", optionsMenu);
     QWidget *editMatrix = new QPushButton("Edit Matrix", optionsMenu);
 
-    QWidget *addingMats = new QPushButton("Add Two Matricies", operationMenu);
-    QWidget *subbingMats = new QPushButton("Subtract Two Matricies", operationMenu);
-    QWidget *multiMats = new QPushButton("Multiply Two Matricies", operationMenu);
+    //QWidget *addingMats = new QPushButton("Add Two Matricies", operationMenu);
+    //QWidget *subbingMats = new QPushButton("Subtract Two Matricies", operationMenu);
+    //QWidget *multiMats = new QPushButton("Multiply Two Matricies", operationMenu);
 
-
+    //QWidget *new_matrix;
 
 
     QWidget *matrixView = new matrixWindow(this);
@@ -47,6 +47,7 @@ private:
 
 public slots:
     void addMatrixSlot(bool pressed);
+    void addedMatrixSlot(Matrix viewThis);
 
 signals:
     void addingMatrix(bool);

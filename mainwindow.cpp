@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     optionsLayout->stretch(1);
     optionsMenu->setFixedHeight(50);
 
+    /*
     operationLayout->addWidget(addingMats);
     operationLayout->stretch(1);
     operationLayout->addWidget(subbingMats);
@@ -22,9 +23,10 @@ MainWindow::MainWindow(QWidget *parent) :
     operationLayout->addWidget(multiMats);
     operationLayout->stretch(1);
     operationMenu->setFixedHeight(50);
+*/
 
     m_layout->addWidget(optionsMenu);
-    m_layout->addWidget(operationMenu);
+    //m_layout->addWidget(operationMenu);
     m_layout->addWidget(matrixView);
 
     ui->centralWidget->setLayout(m_layout);
@@ -33,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     connect(addMatrix, SIGNAL(clicked(bool)), this, SLOT(addMatrixSlot(bool)));
+    //connect(new_matrix, SIGNAL(addedMatrixSignal(Matrix)), this, SLOT(addedMatrixSlot(Matrix)));
 
 }
 
@@ -44,4 +47,10 @@ MainWindow::~MainWindow()
 void MainWindow::addMatrixSlot(bool pressed)
 {
     emit addingMatrix(pressed);
+}
+
+void MainWindow::addedMatrixSlot(Matrix viewThis)
+{
+    //new_matrix = new MatrixView(viewThis, matrixView);
+    m_layout->addWidget(matrixView);
 }
