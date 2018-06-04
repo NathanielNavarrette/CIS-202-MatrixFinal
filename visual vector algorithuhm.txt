@@ -5,19 +5,19 @@ DEF  *	MNO   =	(DJ+EM+FP)  (DK+EN+FQ)  (DL+EO+FR)
 GHI	PQR	(GJ+HM+IP)  (GK+HN+IQ)  (GL+HO+IR)
 
 TOP ROW:
-(AJ+BM+CP)				(AK+BN+CQ)				(AL+BO+CR)
+(AJ+BM+CP)			(AK+BN+CQ)				(AL+BO+CR)
 m1.at(0).at(0) * m2.at(0).at(0)		m1.at(0).at(0) * m2.at(0).at(1)		m1.at(0).at(0) * m2.at(0).at(2)
 m1.at(0).at(1) * m2.at(1).at(0)		m1.at(0).at(1) * m2.at(1).at(1)		m1.at(0).at(1) * m2.at(1).at(2)
 m1.at(0).at(2) * m2.at(2).at(0)		m1.at(0).at(2) * m2.at(2).at(1)		m1.at(0).at(2) * m2.at(2).at(2)
 
 MIDDLE ROW:
-(DJ+EM+FP)				(DK+EN+FQ)				(DL+EO+FR)
+(DJ+EM+FP)			(DK+EN+FQ)				(DL+EO+FR)
 m1.at(1).at(0) * m2.at(0).at(0)		m1.at(1).at(0) * m2.at(0).at(1)		m1.at(1).at(0) * m2.at(0).at(2)
 m1.at(1).at(1) * m2.at(1).at(0)		m1.at(1).at(1) * m2.at(1).at(1)		m1.at(1).at(1) * m2.at(1).at(2)
 m1.at(1).at(2) * m2.at(2).at(0)		m1.at(1).at(2) * m2.at(2).at(1)		m1.at(1).at(2) * m2.at(2).at(2)
 
 BOTTOM ROW:
-(GJ+HM+IP)  				(GK+HN+IQ)				(GL+HO+IR)
+(GJ+HM+IP)  			(GK+HN+IQ)				(GL+HO+IR)
 m1.at(2).at(0) * m2.at(0).at(0)		m1.at(2).at(0) * m2.at(0).at(1)		m1.at(2).at(0) * m2.at(0).at(2)
 m1.at(2).at(1) * m2.at(1).at(0)		m1.at(2).at(1) * m2.at(1).at(1)		m1.at(2).at(1) * m2.at(1).at(2)
 m1.at(2).at(2) * m2.at(2).at(0)		m1.at(2).at(2) * m2.at(2).at(1)		m1.at(2).at(2) * m2.at(2).at(2)

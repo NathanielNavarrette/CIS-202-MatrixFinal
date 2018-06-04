@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent) :
     optionsLayout->stretch(1);
     optionsMenu->setFixedHeight(50);
 
+    //m_scrollArea->setWidget(matrixViewArea);
+
     /*
     operationLayout->addWidget(addingMats);
     operationLayout->stretch(1);
@@ -34,14 +36,17 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setMinimumWidth(1366);
 
 
+    connect(this, SIGNAL(doOperations(std::vector<Matrix>)), matrixViewArea, SLOT(doOpers(std::vector<Matrix>)));
     connect(addMatrix, SIGNAL(clicked(bool)), this, SLOT(addMatrixSlot(bool)));
     //connect(this, SIGNAL(operationButtonSent(std::vector<Matrix>)), operationMenu, SLOT(operationMenuSlot(std::vector<Matrix>)));
     connect(matrixViewArea, SIGNAL(addedMatrixSignal(Matrix)), this, SLOT(addedMatrixSlot(Matrix)));
     connect(clearScreen, SIGNAL(clicked(bool)), this, SLOT(tempSlotDebug(bool)));
+    connect(clearScreen, SIGNAL(clicked(bool)), this, SLOT(clearScreenSlot(bool)));
     connect(operationButton, SIGNAL(clicked(bool)), this, SLOT(operationButtonSending(bool)));
 
     connect(matrixViewArea, SIGNAL(resultingMatrixSignal(Matrix, Matrix, Matrix, QString)) , this, SLOT(viesResultingMatrix(Matrix, Matrix, Matrix, QString)));
     connect(matrixViewArea, SIGNAL(sendMatrix(Matrix)), this, SLOT(finishedAddingMatrix(Matrix)));
+    start_layout = m_layout;
 }
 
 MainWindow::~MainWindow()
@@ -88,6 +93,16 @@ void MainWindow::finishedAddingMatrix(Matrix add_this)
 void MainWindow::operationButtonSending(bool)
 {
     emit operationButtonSent(inputtedMatricies);
+}
+
+void MainWindow::operMenuClosed(std::vector<Matrix> recieved_list)
+{
+    emit doOperations(recieved_list);
+}
+
+void MainWindow::clearScreenSlot(bool)
+{
+
 }
 
 void MainWindow::tempSlotDebug(bool pressed)

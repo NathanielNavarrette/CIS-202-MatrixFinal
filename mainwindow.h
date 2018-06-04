@@ -4,13 +4,14 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QLayout>
+#include <QScrollArea>
+#include <QSettings>
 
 #include "matrixwindow.h"
 #include "matrixview.h"
 #include "opermenu.h"
 
 enum SizeConstraint { SetDefaultConstraint, SetFixedSize, SetMinimumSize, SetMaximumSize, SetMinAndMaxSize, SetNoConstraint };
-
 
 namespace Ui {
 class MainWindow;
@@ -32,6 +33,7 @@ private:
     QWidget *optionsMenu = new QWidget(this);
     //QWidget *operationMenu = new QWidget(this);
     QVBoxLayout *m_layout = new QVBoxLayout(this);
+    QVBoxLayout *start_layout = new QVBoxLayout(this);
     QHBoxLayout *optionsLayout = new QHBoxLayout(optionsMenu);
     //QHBoxLayout *operationLayout = new QHBoxLayout(operationMenu);
     QWidget *addMatrix = new QPushButton("Add a Matrix", optionsMenu);
@@ -41,7 +43,8 @@ private:
     QWidget *matrixViewArea = new matrixWindow(this);
     QWidget *operationMenu = new OperMenu(this);
 
-    //void debugMatricies();
+    QSettings *screenClear = new QSettings(this);
+
 
 public slots:
     void addMatrixSlot(bool pressed);
@@ -50,10 +53,13 @@ public slots:
     void viesResultingMatrix(Matrix lhs, Matrix rhs, Matrix result, QString operation);
     void tempSlotDebug(bool pressed);
     void operationButtonSending(bool pressed);
+    void clearScreenSlot(bool pressed);
+    void operMenuClosed(std::vector<Matrix> recieved_list);
 
 signals:
     void addingMatrix(bool);
     void operationButtonSent(std::vector<Matrix>);
+    void doOperations(std::vector<Matrix>);
 };
 
 #endif // MAINWINDOW_H

@@ -14,6 +14,7 @@ public:
     explicit MatrixView(QWidget *parent = nullptr);
     MatrixView(Matrix &displayThis, QWidget *parent = nullptr);
     MatrixView(Matrix &lhs, Matrix &rhs, Matrix &result, QString operation, QWidget *parent = nullptr);
+
     QString get_string();
     QWidget *get_label();
 
@@ -28,11 +29,6 @@ private:
 
     QWidget *displayWindow = new QWidget(this);
     QHBoxLayout *m_layout = new QHBoxLayout(displayWindow);
-
-    /*
-    QWidget *horzWidget = new QWidget(displayWindow);
-    QHBoxLayout *colLayout = new QHBoxLayout(horzWidget);
-    */
 
 
 signals:

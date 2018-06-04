@@ -30,6 +30,7 @@ public slots:
     void operationsMenuSlot(std::vector<Matrix> matrix_list);
 
 signals:
+    void menuClosed(std::vector<Matrix> matrix_list);
 
 };
 

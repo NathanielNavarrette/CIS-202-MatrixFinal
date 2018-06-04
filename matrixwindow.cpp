@@ -42,7 +42,6 @@ void matrixWindow::addMatrixDialog()
             form.addRow("Row" + QString::number(i+1) + " ,Column" + QString::number(j+1), lineEdit);
             fields << lineEdit;
         }
-        //form.addRow(label, lineEdit);
     }
 
 
@@ -75,25 +74,23 @@ void matrixWindow::addMatrixDialog()
     Matrix test2(tbtTest, 2, 3);
     Matrix m_matrix(c_tmp, rows, collums);
     emit sendMatrix(m_matrix);
+}
 
-    //This function should end here, only once the operations button is filled out and sent should
-    //the functions under this be called
-
-    Matrix empty_test;
-
-    Matrix addition = m_matrix+test2;
+void matrixWindow::doOpers(std::vector<Matrix> recieved_list)
+{
+    Matrix addition = recieved_list.at(0)+recieved_list.at(1);
     //emit addedMatrixSignal(addition);
-    emit resultingMatrixSignal(m_matrix, test2, addition, QString("+"));
+    emit resultingMatrixSignal(recieved_list.at(0), recieved_list.at(1), addition, QString("+"));
     addition.m_debug_this(QString("Addition"));
 
-    Matrix subtract = m_matrix-m_matrix;
+    Matrix subtract = recieved_list.at(0)-recieved_list.at(1);
     //emit addedMatrixSignal(subtract);
-    emit resultingMatrixSignal(m_matrix, m_matrix, subtract, QString("-"));
+    emit resultingMatrixSignal(recieved_list.at(0), recieved_list.at(1), subtract, QString("-"));
     subtract.m_debug_this(QString("Subtraction"));
 
-    Matrix multi = m_matrix*test2;
+    Matrix multi = recieved_list.at(0)*recieved_list.at(1);
     //emit addedMatrixSignal(multi);
-    emit resultingMatrixSignal(m_matrix, test2, multi, QString("*"));
+    emit resultingMatrixSignal(recieved_list.at(0), recieved_list.at(1), multi, QString("*"));
     multi.m_debug_this(QString("Multiplication"));
 }
 
