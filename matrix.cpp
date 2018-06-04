@@ -23,8 +23,9 @@ Matrix::Matrix(std::vector<int> in_values, int rows, int cols)
 
     for(int i=0;i<thisSize;i)
     {
-        if(i != thisSize -1)
+        if(i != thisSize) //this had (thiSize -1) which fixxed some stuff and broke others
         {
+            qDebug() << "Matrix Created successfully";
             int secondLoopMax = i+cols;
             for(int j=i; j < secondLoopMax; j++)
             {
@@ -57,6 +58,7 @@ int Matrix::get_cols() const
 
 int Matrix::get_value_at(int this_row, int this_col)
 {
+    qDebug() << "outside size: " << m_data.size() << " Inside side: " << m_data.at(this_row).size();
     return m_data.at(this_row).at(this_col);
 }
 
@@ -231,6 +233,38 @@ Matrix operator*(const Matrix &lhs, const Matrix &rhs)
         }
         //end the rearranging
         Matrix return_this(m_value);
+        return return_this;
+
+    }else if(rhs.get_cols() == 1 && rhs.get_rows() == 1 ){
+
+        //rhs is the scalar
+        m_Matrix result_tmp = lhs.get_matrix();
+        m_Matrix m_rhs = rhs.get_matrix();
+
+        for(int i=0; i < lhs.get_rows(); i++)
+        {
+            for(int j=0; j < lhs.get_cols(); j++)
+            {
+                result_tmp.at(i).at(j) *= m_rhs.at(0).at(0);
+            }
+        }
+        Matrix return_this(result_tmp);
+        return return_this;
+
+    }else if(lhs.get_cols() == 1 && lhs.get_rows() == 1){
+
+        //lhs is the scalar
+        m_Matrix result_tmp = rhs.get_matrix();
+        m_Matrix m_lhs = lhs.get_matrix();
+
+        for(int i=0; i < rhs.get_rows(); i++)
+        {
+            for(int j=0; j < rhs.get_cols(); j++)
+            {
+                result_tmp.at(i).at(j) *= m_lhs.at(0).at(0);
+            }
+        }
+        Matrix return_this(result_tmp);
         return return_this;
     }else{
         return empty_result;

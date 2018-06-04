@@ -105,9 +105,9 @@ void matrixWindow::doOpers(std::vector<Matrix> recieved_list)
 void matrixWindow::addingMatrix(bool clicked)
 {
     qDebug() << "Display box Image";
-    int rows = 0;
-    int collums = 0;
-    int totalValues;
+    //int rows = 1;
+    //int collums = 1;
+    //int totalValues;
 
     QDialog dialog(this);
     // Use a layout allowing to have a label next to each field
