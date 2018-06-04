@@ -32,7 +32,9 @@ private:
 
 signals:
     void matrixWindowSignal();
+    void sendMatrix(Matrix add_this);
     void addedMatrixSignal(Matrix viewThis);
+    void resultingMatrixSignal(Matrix lhs, Matrix rhs, Matrix result, QString operation);
 
 public slots:
     void addingMatrix(bool clicked);

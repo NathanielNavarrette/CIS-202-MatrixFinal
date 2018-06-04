@@ -28,13 +28,15 @@ SOURCES += \
         mainwindow.cpp \
     matrixwindow.cpp \
     matrix.cpp \
-    matrixview.cpp
+    matrixview.cpp \
+    opermenu.cpp
 
 HEADERS += \
         mainwindow.h \
     matrixwindow.h \
     matrix.h \
-    matrixview.h
+    matrixview.h \
+    opermenu.h
 
 FORMS += \
         mainwindow.ui

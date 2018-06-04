@@ -12,17 +12,27 @@ class MatrixView : public QWidget
     Q_OBJECT
 public:
     explicit MatrixView(QWidget *parent = nullptr);
-    MatrixView(Matrix displayThis, QWidget *parent = nullptr);
+    MatrixView(Matrix &displayThis, QWidget *parent = nullptr);
+    MatrixView(Matrix &lhs, Matrix &rhs, Matrix &result, QString operation, QWidget *parent = nullptr);
+    QString get_string();
+    QWidget *get_label();
 
 
 private:
     Matrix m_data;
+    QString showData;
+
+    QWidget *displayMatrix = new QLabel(this);
+
+    QString get_matrix_string(Matrix &displayThis);
 
     QWidget *displayWindow = new QWidget(this);
-    QVBoxLayout *m_layout = new QVBoxLayout(this);
+    QHBoxLayout *m_layout = new QHBoxLayout(displayWindow);
 
+    /*
     QWidget *horzWidget = new QWidget(displayWindow);
     QHBoxLayout *colLayout = new QHBoxLayout(horzWidget);
+    */
 
 
 signals:

@@ -68,76 +68,33 @@ void matrixWindow::addMatrixDialog()
     qDebug() << "Size of c_tmp: " << c_tmp.size();
     qDebug() << "";
 
+    std::vector<int> tbtTest;
+    for(int i=0;i<6;i++)
+        tbtTest.push_back(i);
+
+    Matrix test2(tbtTest, 2, 3);
     Matrix m_matrix(c_tmp, rows, collums);
+    emit sendMatrix(m_matrix);
+
+    //This function should end here, only once the operations button is filled out and sent should
+    //the functions under this be called
+
     Matrix empty_test;
 
-    Matrix addition = m_matrix+m_matrix;
+    Matrix addition = m_matrix+test2;
+    //emit addedMatrixSignal(addition);
+    emit resultingMatrixSignal(m_matrix, test2, addition, QString("+"));
     addition.m_debug_this(QString("Addition"));
 
     Matrix subtract = m_matrix-m_matrix;
+    //emit addedMatrixSignal(subtract);
+    emit resultingMatrixSignal(m_matrix, m_matrix, subtract, QString("-"));
     subtract.m_debug_this(QString("Subtraction"));
 
-    Matrix multi = m_matrix*m_matrix;
+    Matrix multi = m_matrix*test2;
     //emit addedMatrixSignal(multi);
+    emit resultingMatrixSignal(m_matrix, test2, multi, QString("*"));
     multi.m_debug_this(QString("Multiplication"));
-
-    /*
-    std::vector<int> row_tmp;
-    std::vector<int> empty_vector;
-
-    int thisSize = (rows*collums);
-
-    for(int i=0;i<thisSize;i)
-    {
-        if(i != thisSize -1)
-        {
-            int secondLoopMax = i+collums;
-            for(int j=i; j < secondLoopMax; j++)
-            {
-                row_tmp.push_back(c_tmp.at(j));
-
-                i=0;
-                i+=(j+1);
-            }
-            m_data.push_back(row_tmp);
-            row_tmp = empty_vector;
-
-        }else{
-            i++;
-        }
-    }
-
-    /*
-    for(int i=0;i<c_tmp.size();i++)
-    {
-
-        if(i == 0 || (i % rows) != 0 )
-        {
-            row_tmp.push_back(c_tmp.at(i));
-        }else{
-            row_tmp.push_back(c_tmp.at(i));
-            m_data.push_back(row_tmp);
-            row_tmp = empty_vector;
-        }
-
-        qDebug() << c_tmp.at(i);
-    }
-    */
-
-    /*
-    qDebug() << "Output from the vector:";
-    qDebug() << "m_data size: " << m_data.size();
-
-    for(int i = 0; i < m_data.size(); i++)
-    {
-        qDebug() << "Size at " << i << " : " << m_data.at(i).size();
-        for(int j = 0; j < m_data.at(i).size(); j++)
-        {
-            qDebug() << m_data.at(i).at(j);
-        }
-
-    }
-    */
 }
 
 
