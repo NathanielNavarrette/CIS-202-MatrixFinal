@@ -10,6 +10,7 @@
 #include <QDialogButtonBox>
 #include <QMessageBox>
 #include <QDebug>
+#include <QTime>
 #include <vector>
 
 #include "matrix.h"

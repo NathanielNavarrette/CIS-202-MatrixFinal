@@ -32,13 +32,20 @@ void matrixWindow::addMatrixDialog()
     QString label[collums];
     QLineEdit *lineEdit = NULL;
 
+    int max_value = 25;
+    qsrand(QDateTime::currentMSecsSinceEpoch()%5000);
+
+
     for(int i = 0; i < rows; ++i)
     {
         for(int j = 0; j < collums; j++)
         {
-            qDebug() << "Test -- R" << i << "C" << j;
-            label[j] = QString("Row:").arg(i + 1);
-            lineEdit = new QLineEdit(QString::number(j+i), &dialog);
+            int randnumb = qrand();
+            randnumb %= max_value;
+
+            //qDebug() << "Test -- R" << i << "C" << j;
+            label[j] = QString("Row:" "%1").arg(i + 1);
+            lineEdit = new QLineEdit(QString::number(randnumb), &dialog);
             form.addRow("Row" + QString::number(i+1) + " ,Column" + QString::number(j+1), lineEdit);
             fields << lineEdit;
         }
@@ -64,8 +71,8 @@ void matrixWindow::addMatrixDialog()
     }
     //fix this so that if its not accepted dont do all of this
 
-    qDebug() << "Size of c_tmp: " << c_tmp.size();
-    qDebug() << "";
+    //qDebug() << "Size of c_tmp: " << c_tmp.size();
+    //qDebug() << "";
 
     std::vector<int> tbtTest;
     for(int i=0;i<6;i++)
@@ -117,10 +124,10 @@ void matrixWindow::addingMatrix(bool clicked)
         QString label;
         if(i==0)
         {
-            label = QString("Rows:").arg(i + 1);
+            label = QString("Rows:" "%1").arg(i + 1);
             lineEdit = new QLineEdit(QString::number(1), &dialog);
         }else if(i == 1){
-            label = QString("Collums:").arg(i + 1);
+            label = QString("Collums:" "%1").arg(i + 1);
             lineEdit = new QLineEdit(QString::number(1), &dialog);
         }
 

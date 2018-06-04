@@ -27,13 +27,18 @@ void OperMenu::operationsMenuSlot(std::vector<Matrix> matrix_list)
     QWidget *matrix_display_tmp = NULL;
     QLineEdit *lineEdit = NULL;
 
-    for(int i = 0; i < matrix_list.size(); i++)
+    for(int i=0; i < matrix_list.size(); i++)
     {
+        qDebug() << "adding to dialog, loop: " << i;
         m_rbuttons[i] = new QCheckBox(QString("Matrix:" "%1").arg(i+1), this);
         //lineEdit = new QLineEdit(QString::number(j+i), &dialog);
-        matrix_display_tmp = new QLabel(MatrixView(matrix_list.at(i), this).get_string());
+        qDebug() << "add to dialog debug 1";
+        matrix_display_tmp = new QLabel(MatrixView(matrix_list.at(i), this).get_string()); // this is the line that throws it
+        qDebug() << "add to dialog debug 2";
         form.addRow((m_rbuttons[i]), matrix_display_tmp);
+        qDebug() << "add to dialog debug 3";
         fields << lineEdit;
+        qDebug() << "add to dialog debug 4";
     }
 
     // Add some standard buttons (Cancel/Ok) at the bottom of the dialog

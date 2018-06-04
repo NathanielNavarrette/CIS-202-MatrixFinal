@@ -38,29 +38,34 @@ MatrixView::MatrixView(Matrix &lhs, Matrix &rhs, Matrix &result, QString operati
 QString MatrixView::get_matrix_string(Matrix &displayThis)
 {
     QString return_string;
-    m_data = displayThis;
+    //m_data = displayThis;
 
+    /*
+     * this is the function that doesnt work when you have a nX1 matrix for what ever reason
+     * has to do with the get rows or something, it goes one over on the rows i guess
+     */
     for(int i=0;i<m_data.get_rows();i++)
     {
         for(int j=0;j<m_data.get_cols();j++)
         {
+            qDebug() << "break 1: i:" << i << " j: " << j;
             return_string += QString("%1").arg(QString::number(m_data.get_value_at(i, j)), -5);// + " ";
         }
-        return_string += "\n"; //adds a new line for the matrix
+                return_string += "\n"; //adds a new line for the matrix
     }
 
-    return return_string;
-}
+                return return_string;
+    }
 
-QString MatrixView::get_string()
-{
-    if(showData != "")
-        return showData;
-    else
-        return QString("Operation Wasn't able to be done\nOn the two chosen Matricies.");
-}
+                QString MatrixView::get_string()
+        {
+                if(showData != "")
+                return showData;
+                else
+                return QString("Operation Wasn't able to be done\nOn the two chosen Matricies.");
+    }
 
-QWidget* MatrixView::get_label()
-{
-    return displayWindow;
-}
+                QWidget* MatrixView::get_label()
+        {
+                return displayWindow;
+    }
